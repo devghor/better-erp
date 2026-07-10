@@ -54,6 +54,21 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Access / Refresh Token Lifetimes
+    |--------------------------------------------------------------------------
+    |
+    | These values control how many minutes an issued access token and
+    | refresh token remain valid for, respectively. Used by the login
+    | and refresh endpoints when minting the token pair.
+    |
+    */
+
+    'access_token_ttl' => (int) env('SANCTUM_ACCESS_TOKEN_TTL', 60),
+
+    'refresh_token_ttl' => (int) env('SANCTUM_REFRESH_TOKEN_TTL', 60 * 24 * 30),
+
+    /*
+    |--------------------------------------------------------------------------
     | Token Prefix
     |--------------------------------------------------------------------------
     |
