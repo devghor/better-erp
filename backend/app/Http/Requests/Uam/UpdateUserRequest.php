@@ -6,7 +6,17 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
+use OpenApi\Attributes as OA;
 
+#[OA\Schema(
+    schema: 'UpdateUserRequest',
+    properties: [
+        new OA\Property(property: 'name', type: 'string', maxLength: 255, example: 'Jane Doe'),
+        new OA\Property(property: 'email', type: 'string', format: 'email', maxLength: 255, example: 'jane@example.com'),
+        new OA\Property(property: 'password', type: 'string', format: 'password', example: 'Secr3t!Passw0rd'),
+        new OA\Property(property: 'password_confirmation', type: 'string', format: 'password', example: 'Secr3t!Passw0rd'),
+    ],
+)]
 class UpdateUserRequest extends FormRequest
 {
     /**
